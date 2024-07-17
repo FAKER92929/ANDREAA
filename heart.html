@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corazón para Andrea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .container input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .container button {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .heart-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .heart {
+            font-size: 200px;
+            color: red;
+            display: none;
+        }
+        .image-container {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 10px solid transparent; /* Ancho y estilo del borde */
+            padding: 10px; /* Espacio interno alrededor de la imagen */
+            box-shadow: 0 0 0 10px rgba(255, 0, 0, 0.2); /* Sombra roja alrededor */
+        }
+        .image {
+            display: block;
+            width: 200px; /* Tamaño de la imagen */
+            height: 200px;
+            object-fit: cover; /* Ajuste de la imagen para llenar el contenedor */
+            border-radius: 50%; /* Asegura que la imagen sea circular */
+        }
+        .message {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ponga el nombre de su reyna</h1>
+        <form id="nameForm">
+            <input type="text" id="nameInput" placeholder="Ingrese un nombre" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="heart-container">
+            <div class="heart">❤️</div>
+            <div class="image-container">
+                <img src="xd.jpeg" class="image" alt="Imagen">
+            </div>
+        </div>
+        <div class="message" id="message"></div>
+    </div>
+    <script>
+        document.getElementById('nameForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('nameInput').value.trim().toUpperCase();
+            const heart = document.querySelector('.heart');
+            const message = document.getElementById('message');
+            if (name === 'ANDREA') {
+                heart.style.display = 'block';
+                message.textContent = 'TE AMO ANDREA';
+            } else {
+                heart.style.display = 'none';
+                message.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>
